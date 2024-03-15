@@ -1,0 +1,6 @@
+## SfChart
+
+### Breaking changes
+{:#sfchart-breaking-changes}
+
+* `ChartColorPalette`'s enum value changed from `TomotoSpectrum` to `TomatoSpectrum`.

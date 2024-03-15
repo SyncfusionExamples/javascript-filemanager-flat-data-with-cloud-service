@@ -1,0 +1,6 @@
+## PdfViewerControl
+
+### Bug Fixes
+{:#pdfviewercontrol-bug-fixes}
+* \#I424983 – The `FitPage` zoom mode now works properly for different page size in specific control size.
+* \#I426301 – Transparent color will now work properly for `PdfFreeTextAnnotation` Color.

@@ -1,0 +1,6 @@
+## SfPicker
+
+### Bug Fixes
+{:#SfPicker-bug-fixes} 
+
+- \#236621, \#236972 -Now, `SfPicker` works properly using custom month logic.

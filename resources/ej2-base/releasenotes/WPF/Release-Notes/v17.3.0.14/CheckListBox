@@ -1,0 +1,16 @@
+## CheckListBox
+  
+### Features
+
+* Support to group items in CheckListBox
+* Support to sort items in CheckListBox
+* UI Virtualization support is provided
+* All items can be selected at once using 'Selected All' item.
+
+### Behavior Changes
+
+* In earlier version, all checked items will be in selected state. Hear onwards, only focused item will be selected.
+* `SelectionChanged` event will be fired based selection behavior changes explained above, use 'SelectedItems.CollectionChanged` event to notify about changes in checked items.
+
+
+

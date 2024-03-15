@@ -1,0 +1,24 @@
+## PDF
+
+### Features
+{:#pdf-features}
+
+* \#157234 - Support for adding textbox fields with same name has been added for both the existing and new documents.
+* \#158792 - Performance is now improved while merging PDF documents.
+
+### Bug Fixes
+{:#pdf-bug-fixes} 
+
+* \#161606 - Application will never hang while generating PDF documents in multithreading environment.
+* \#162060 - Exception is no longer thrown, while reading the form fields.
+* \#161619 - Border width of checkbox field is now preserved properly.
+* \#163097 - Border width of textbox field is now preserved properly.
+* \#163551 - Web link will be enabled properly when adding `PdfTextWebLink` to `PdfLoadedDocument`.
+* \#161994 - Exception is no longer thrown while flattening the form field.
+* \#160057 - NullReferenceException is no longer thrown while merging the PDF document.
+* \#159398 - NullReferenceException is no longer thrown while getting the index from page.   
+* \#159067 - Fatal error is no longer thrown while loading the PDF document.
+* Annotations are now removed properly while using remove method in `PdfLoadedAnnotationCollection`.
+* Text is now retrieved properly from `PdfLoadedTextBoxField`.
+* Currency symbol is now retrieved properly from `PdfLoadedTextBoxField`. 
+* Popup annotation position has been preserved properly.

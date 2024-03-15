@@ -1,0 +1,6 @@
+## SfSchedule
+
+### Bug Fixes
+{:#sfschedule-bug-fixes}
+
+*  \#159172- Now, Binding to a data source works in Schedule Xamarin.iOS

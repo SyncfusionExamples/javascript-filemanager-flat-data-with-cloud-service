@@ -1,0 +1,12 @@
+## SfKanban
+
+### Bug fixes
+{:#sfkanban-bug-fixes}
+
+* \#163010 – The issue with device orientation has been fixed in Android.   
+
+* \#166054 – Now the templated cards are working properly when you drag and drop the card.  
+
+* \#166054 – Cards are aligned properly when we set the HorizontalOptions as FillAndExpand in [`CardTemplate`](https://help.syncfusion.com/cr/cref_files/xamarin/sfkanban/Syncfusion.SfKanban.XForms~Syncfusion.SfKanban.XForms.SfKanban~CardTemplate.html) in Android.
+
+* \#166054 – InvalidCastException will no longer be thrown while using [`ItemTapped`](https://help.syncfusion.com/cr/cref_files/xamarin/sfkanban/Syncfusion.SfKanban.XForms~Syncfusion.SfKanban.XForms.KanbanTappedEventArgs.html) event with custom models.

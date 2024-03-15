@@ -1,0 +1,6 @@
+## SfCartesianChart
+
+### Bug Fixes
+{:#sfcartesianchart-bug-fixes}
+
+* \#I830932 - The chart legend now supports dynamic changes for IsVisibleOnLegend property.

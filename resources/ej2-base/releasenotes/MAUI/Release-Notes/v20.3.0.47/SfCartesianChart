@@ -1,0 +1,18 @@
+## SfCartesianChart `Preview`
+
+### Features
+{:#sfcartesianchart-features}
+
+* The logarithmic axis support has been provided in the chart. It makes it easier to visualize the widest range of data points.
+* Support for single and multiple-series selection is provided in the chart. We can highlight the series as needed.
+* Any view can now be added as the background of a chart plot region.
+
+### Known Issues
+{:#sfcartesianchart-known-issues}
+
+* Due to a framework issue on the Android platform, the chart legend is partially clipped.
+
+### Breaking changes
+{:#sfcartesianchart-breaking-changes}
+
+* The `SfCartesianChart`'s `ChartSelectionBehavior` type `SelectionBehavior` property has been updated. The `SeriesSelectionBehavior` is initialized to highlight series or Using the `SelectionBehavior` property of the `ChartSeries`, initialize the `DataPointSelectionBehavior` to highlight the data points.

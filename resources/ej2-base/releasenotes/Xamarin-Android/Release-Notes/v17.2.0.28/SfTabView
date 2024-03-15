@@ -1,0 +1,6 @@
+## SfTabView
+
+### Bug Fixes
+{:#SfTabView-bug-fixes} 
+
+* \#236890 - Now, the `SelectedIndex` is updated correctly when removing the items of drop-down in the `OverFlow` mode.

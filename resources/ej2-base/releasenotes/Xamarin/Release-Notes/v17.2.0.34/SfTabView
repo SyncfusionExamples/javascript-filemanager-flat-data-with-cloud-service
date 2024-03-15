@@ -1,0 +1,13 @@
+## SfTabView 
+
+### Features
+{:#SfTabView-features} 
+
+* Support has been provided to set the transition delay for tab navigation.
+* \#232992- Image and FontIcon supports have been provided for drop-down items in the `OverflowMode`.
+
+### Bug Fixes
+{:#SfTabView-bug-fixes} 
+* \#237450 – Now, the `SfTabView` is rendered as empty without crashing when content is set to null.
+* \#235609 - [UWP] Now, scrolling works without conflicting the scroll behavior of `SfTabView` properly.
+* \#236890 - [Android] Now, the `SelectedIndex` is updated properly when removing the items of drop-down in the `OverflowMode`.

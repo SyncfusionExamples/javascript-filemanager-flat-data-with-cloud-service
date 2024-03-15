@@ -1,0 +1,12 @@
+## XlsIO
+
+### Bug Fixes
+{:#xlsio-bug-fixes}
+
+* \#230042, \#231663 - Number and date time values are now rendered properly in Excel to PDF conversion.
+* \#240083 - Number alignment is now proper in Excel to PDF conversion.
+* \#235971 - Chart series type is now preserved properly while saving the workbook with combination chart.
+* \#240200 - Pivot table background color is now preserved properly while resaving the Excel document.
+* \#240677 - Pivot chart is now preserved properly while resaving the Excel document.
+* \#240083 - Chart data points will no longer be missed when converting Excel to PDF.
+* \#239969 - Argument exception will no longer be thrown on opening the Excel file containing external workbook.

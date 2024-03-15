@@ -1,0 +1,9 @@
+## XlsIO
+
+### Bug Fixes
+{:#xlsio-bug-fixes}
+
+* \#I399982 - Application being hanged while parsing Excel document with empty relation is now resolved.
+* \#I398795 - Order of conditional formatting is now maintained properly while copying the worksheet to new Excel workbook.
+* \#I400852 - Null reference exception being thrown while parsing chart series category with extension list is now resolved.
+

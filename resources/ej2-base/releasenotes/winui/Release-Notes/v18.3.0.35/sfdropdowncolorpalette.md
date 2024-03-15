@@ -1,0 +1,2 @@
+## DropDownColorPalette `Preview`
+The Syncfusion WinUI DropDownColorPalette control allows user to select control from predefined color palette. The control provides various built-in color palettes, automatic and more color options from drop down.

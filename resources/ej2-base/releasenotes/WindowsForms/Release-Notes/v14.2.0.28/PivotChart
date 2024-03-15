@@ -1,0 +1,6 @@
+## Pivot Chart `Preview`
+
+### Bug Fixes
+{:#pivotchart-bug-fixes}
+
+* \#156894 - PivotChart is now working properly while adding the empty values in `PivotLegend`.

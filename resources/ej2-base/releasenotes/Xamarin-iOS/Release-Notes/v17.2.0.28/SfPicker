@@ -1,0 +1,8 @@
+## SfPicker
+
+### Bug Fixes
+{:#SfPicker-bug-fixes} 
+
+- \#236621, \#236972 - Now, `SfPicker` works properly using custom month logic.
+- \#237872 -  Now, `SfPicker` works properly with the `EnableLooping` API.
+- \#235765 - Now, the columns do not overlap when the visibility of `SfPicker` is changed. 

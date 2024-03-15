@@ -1,0 +1,6 @@
+## PdfViewerControl
+
+### Bug Fixes
+{:#pdfviewercontrol-bug-fixes}
+* \#I423442 – The mouse cursor will now work properly after expanding thumbnail pane.
+* \#I425127 – `CustomStamp` images will now be saved properly when it was added using `AddStamp`.

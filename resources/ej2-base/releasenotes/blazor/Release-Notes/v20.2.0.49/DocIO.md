@@ -1,0 +1,17 @@
+## DocIO
+
+### Bug Fixes
+{:#DocIO-bug-fixes}
+
+- `#I398404` - Nested IF field with bookmark is now updated properly while calling a `UpdateDocumentFields` method.
+- `#I401643` - Picture is now preserved properly while resaving a DOCX format document.
+- `#I390688` - List formatting is now preserved properly while resaving a RTF format document.
+- `#I399360` - Symbol is now preserved properly while converting a Word document to HTML.
+- `#I399357` - The **ArgumentException** will no longer be thrown while opening a RTF format document.
+- `#I398399` - Nested IF field is now updated properly while calling `UpdateDocumentFields` method.
+- `#I400616` - Tab leader of underline type is now preserved properly while converting a Word document to PDF.
+- `#I399616` – The **OutOfMemoryException** will no longer be thrown while converting a Word document to PDF.
+- `#I401483` - Chart inside text box is now preserved properly while converting  a Word document to PDF.
+- Underline for trailing spaces is now preserved properly while converting a Word document to PDF.
+- List number is now preserved properly while resaving a RTF format document.
+- Endnote and Footnote are preserved properly while creating a Word document.

@@ -1,0 +1,5 @@
+## PdfViewerControl
+
+### Bug Fixes
+{:#pdfviewercontrol-bug-fixes}
+* \#I426052 – The `FontFamily` will now work properly in `FreeTextAnnotationChanged` event.

@@ -1,0 +1,2 @@
+## ColorPalette `Preview`
+The Syncfusion WinUI ColorPalette control allows user to select control from predefined color palette. The control provides various built-in color palettes, automatic and more color options.
