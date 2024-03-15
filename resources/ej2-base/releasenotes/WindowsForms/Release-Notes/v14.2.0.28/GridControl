@@ -1,7 +1,0 @@
-## GridControl
-
-### Bug Fixes
-{:#gridcontrol-bug-fixes}
-
-* \#159058 - Null reference exception is no longer thrown while performing copy series or fill series for a range with null value in first cell.
-* \#159336 - Performance has been improved while exporting the data from GridControl to Excel. 

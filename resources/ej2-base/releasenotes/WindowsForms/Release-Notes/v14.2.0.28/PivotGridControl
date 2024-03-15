@@ -1,9 +1,0 @@
-## PivotGridControl
-
-### Bug Fixes
-{:#pivotgridcontrol-bug-fixes}
-
-* \#156894,\#156895 - `ShowSubTotal` and `ShowGrandTotal` are working properly while changing the pivot schema.
-* \#156894,\#156895 - Invalid format exception is no longer thrown while adding empty `FilterExpression` in PivotGrid.
-* \#156894 - Null reference exception is no longer thrown while adding complex items in filter area of PivotGrid.
-* \#156894,\#156895,\#157031 - Filtered items are now checked properly in filter dropdown UI while adding the `FilterExpression` programmatically.

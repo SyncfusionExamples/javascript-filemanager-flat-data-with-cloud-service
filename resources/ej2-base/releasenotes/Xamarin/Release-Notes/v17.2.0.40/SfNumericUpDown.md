@@ -1,7 +1,0 @@
-## SfNumericUpDown
-
-### Bug Fixes
-{:#sfnumericupdown-bug-fixes} 
-
-* \#I239694 – [iOS] Now, the [`Value`](https://help.syncfusion.com/cr/xamarin/Syncfusion.SfNumericUpDown.XForms~Syncfusion.SfNumericUpDown.XForms.SfNumericUpDown~Value.html) of [`SfNumericUpDown`](https://help.syncfusion.com/cr/xamarin/Syncfusion.SfNumericUpDown.XForms~Syncfusion.SfNumericUpDown.XForms.SfNumericUpDown.html) is incremented or decremented properly if you click the increment or decrement button when adding it in [`GridTemplateColumn`](https://help.syncfusion.com/cr/xamarin/Syncfusion.SfDataGrid.XForms~Syncfusion.SfDataGrid.XForms.GridTemplateColumn.html) of [`SfDataGrid`](https://help.syncfusion.com/cr/xamarin/Syncfusion.SfDataGrid.XForms~Syncfusion.SfDataGrid.XForms.SfDataGrid.html).
-* \#I239161 – Now, the [`Value`](https://help.syncfusion.com/cr/cref_files/xamarin/Syncfusion.SfNumericUpDown.XForms~Syncfusion.SfNumericUpDown.XForms.SfNumericUpDown~Value.html) property is updated properly with the [`Minimum`](https://help.syncfusion.com/cr/cref_files/xamarin/Syncfusion.SfNumericUpDown.XForms~Syncfusion.SfNumericUpDown.XForms.SfNumericUpDown~MinimumProperty.html) property value if the [`Value`](https://help.syncfusion.com/cr/xamarin/Syncfusion.SfNumericUpDown.XForms~Syncfusion.SfNumericUpDown.XForms.SfNumericUpDown~Value.html) is less than [`Minimum`](https://help.syncfusion.com/cr/cref_files/xamarin/Syncfusion.SfNumericUpDown.XForms~Syncfusion.SfNumericUpDown.XForms.SfNumericUpDown~MinimumProperty.html) property value in Xamarin.Forms Android and iOS at load time.

@@ -1,8 +1,0 @@
-## PDF
-
-### Bug Fixes
-{:#PDF-bug-fixes}
-
-* \#339709 - Certificate information will be retrieved properly for the existing broken signatures.
-* \#339221 - StackOverflow exception while no longer occurs  when converting EMF to PDF documents.
-* \#337341 - Preservation issue will no longer occurs while converting tiff image to PDF document.

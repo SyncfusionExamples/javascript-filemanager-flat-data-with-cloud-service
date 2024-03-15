@@ -1,8 +1,0 @@
-## Grid
-
-### Bug Fixes
-
-- `#I458246` - Issue with "[RowSelect](https://blazor.syncfusion.com/documentation/datagrid/events#rowselected)/[RowDeselect](https://blazor.syncfusion.com/documentation/datagrid/events#rowdeselected) events triggers incorrectly when selecting a cells within the same row in [both]((https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Grids.SelectionMode.html#Syncfusion_Blazor_Grids_SelectionMode_Both)) mode" has been resolved.
-- `#I461129` - Issue with "SearchSettings not being maintained when refreshing the page while using [EnablePersistence](https://blazor.syncfusion.com/documentation/datagrid/state-management#enabling-persistence-in-grid)" has been resolved.
-- `#I461122` - Issue with "Dutch translation in the [filter menu](https://blazor.syncfusion.com/documentation/datagrid/filter-menu) clear button" has been resolved.
-- `#I454585` - Issue with "When using [CheckboxMode](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Grids.GridSelectionSettings.html#Syncfusion_Blazor_Grids_GridSelectionSettings_CheckboxMode) as [ResetOnRowClick](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Grids.CheckboxSelectionType.html#Syncfusion_Blazor_Grids_CheckboxSelectionType_ResetOnRowClick) and Selection [Mode](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Grids.GridSelectionSettings.html#Syncfusion_Blazor_Grids_GridSelectionSettings_Mode) as [both](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Grids.SelectionMode.html#Syncfusion_Blazor_Grids_SelectionMode_Both) in the Data Grid, where the [selection](https://blazor.syncfusion.com/documentation/datagrid/selection) was not working as expected while editing" has been resolved.

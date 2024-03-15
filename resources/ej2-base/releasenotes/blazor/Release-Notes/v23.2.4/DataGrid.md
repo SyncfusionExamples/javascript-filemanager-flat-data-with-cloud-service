@@ -1,7 +1,0 @@
-## Data Grid
-
-### Bug Fixes
-
-- `#I515958` - Resolved the issue where the group [toggle button](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Grids.GridGroupSettings.html#Syncfusion_Blazor_Grids_GridGroupSettings_ShowToggleButton) failed to hide, when [AllowGrouping](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Grids.GridColumn.html#Syncfusion_Blazor_Grids_GridColumn_AllowGrouping) was disabled for a specific column.
-- `#I514625` - Resolved the issue where an exception was thrown when [exporting](https://blazor.syncfusion.com/demos/datagrid/exporting?theme=fluent) to a CSV file format, while using the [ColumnType](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Grids.ColumnType.html) as [DateOnly](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Grids.ColumnType.html#Syncfusion_Blazor_Grids_ColumnType_DateOnly) or [TimeOnly](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Grids.ColumnType.html#Syncfusion_Blazor_Grids_ColumnType_TimeOnly) with the columnFormat.
-- `#I508679` - Resolved the issue where the [filter state](https://blazor.syncfusion.com/documentation/datagrid/state-management) is not maintained properly during the initial load or when refreshing the grid.

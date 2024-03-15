@@ -1,6 +1,0 @@
-## GridGroupingControl
-
-### Bug Fixes
-{:#gridgroupingcontrol-bug-fixes}
-
-* The `TitleColumnCount` property is now properly serialized while setting through designer.

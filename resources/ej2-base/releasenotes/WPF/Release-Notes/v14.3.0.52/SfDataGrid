@@ -1,6 +1,0 @@
-## SfDataGrid
-
-### Bug fixes
-{:#sfdatagrid-bug-fixes}
-
-* \#163364 - The vertical scrollbar will not be overlapped to the last column when the `VerticalScrollBar` width is increased.

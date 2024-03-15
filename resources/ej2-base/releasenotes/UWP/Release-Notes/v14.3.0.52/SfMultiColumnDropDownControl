@@ -1,6 +1,0 @@
-## SfMultiColumnDropDownControl
-
-### Bug fixes
-{:#SfMultiColumnDropDownControl-bug-fixes}
-
-* \#165129 - Now the columns can be defined in the style of `SfMultiColumnDropDownControl`.

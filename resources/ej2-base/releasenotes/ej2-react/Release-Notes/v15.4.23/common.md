@@ -1,6 +1,0 @@
-## common
-
-### Bug Fixes
-
-- Resolved `this.propagateTouch is not a function` console error.
-

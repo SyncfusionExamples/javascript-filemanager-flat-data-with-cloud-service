@@ -1,7 +1,0 @@
-## SfRangeSlider
-
-### Features
-{:#SfRangeSlider-features} 
-
-* \#216544 - Support has been provided to customize the touch behavior using `ValueChangeMode`.
-* The `TouchUp` and `TouchDown` events have been implemented.

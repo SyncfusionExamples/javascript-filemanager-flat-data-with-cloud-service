@@ -1,6 +1,0 @@
-## SfChart
-
-### Bug fixes
-{:#sfchart-bug-fixes}
-
-* \#512330 - The issue of a NullReferenceException no longer occurring with axis striplines collection binding when leaving a window has been resolved.
