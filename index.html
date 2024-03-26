@@ -1,19 +1,4 @@
-<!--
-Copyright 2018 Google LLC
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    https://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
--->
-<!-- [START drive_quickstart] -->
+<!-- This project is a skeleton application used to create Javascript File Manager flat data web application with Google file service provider. -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -21,48 +6,39 @@ limitations under the License.
     <meta charset="utf-8" />
     <link href="https://cdn.syncfusion.com/ej2/24.2.3/material.css" rel="stylesheet">
 
-    <script src="resources/ej2-base/dist/global/ej2-base.min.js" type="text/javascript"></script>
-    <script src="resources/ej2-layouts/dist/global/ej2-layouts.min.js" type="text/javascript"></script>
-    <script src="resources/ej2-buttons/dist/global/ej2-buttons.min.js" type="text/javascript"></script>
-    <script src="resources/ej2-popups/dist/global/ej2-popups.min.js" type="text/javascript"></script>
-    <script src="resources/ej2-data/dist/global/ej2-data.min.js" type="text/javascript"></script>
-    <script src="resources/ej2-inputs/dist/global/ej2-inputs.min.js" type="text/javascript"></script>
-    <script src="resources/ej2-lists/dist/global/ej2-lists.min.js" type="text/javascript"></script>
-    <script src="resources/ej2-dropdowns/dist/global/ej2-dropdowns.min.js" type="text/javascript"></script>
-    <script src="resources/ej2-splitbuttons/dist/global/ej2-splitbuttons.min.js" type="text/javascript"></script>
-    <script src="resources/ej2-navigations/dist/global/ej2-navigations.min.js" type="text/javascript"></script>
-    <script src="resources/ej2-grids/dist/global/ej2-grids.min.js" type="text/javascript"></script>
-    <script src="resources/ej2-filemanager/dist/global/ej2-filemanager.min.js" type="text/javascript"></script>
+    <script src="resources/ej2-base/ej2-base.min.js" type="text/javascript"></script>
+    <script src="resources/ej2-layouts/ej2-layouts.min.js" type="text/javascript"></script>
+    <script src="resources/ej2-buttons/ej2-buttons.min.js" type="text/javascript"></script>
+    <script src="resources/ej2-popups/ej2-popups.min.js" type="text/javascript"></script>
+    <script src="resources/ej2-data/ej2-data.min.js" type="text/javascript"></script>
+    <script src="resources/ej2-inputs/ej2-inputs.min.js" type="text/javascript"></script>
+    <script src="resources/ej2-lists/ej2-lists.min.js" type="text/javascript"></script>
+    <script src="resources/ej2-dropdowns/ej2-dropdowns.min.js" type="text/javascript"></script>
+    <script src="resources/ej2-splitbuttons/ej2-splitbuttons.min.js" type="text/javascript"></script>
+    <script src="resources/ej2-navigations/ej2-navigations.min.js" type="text/javascript"></script>
+    <script src="resources/ej2-grids/ej2-grids.min.js" type="text/javascript"></script>
+    <script src="resources/ej2-filemanager/ej2-filemanager.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
   </head>
   <body>
     <div class="layout">
-      <h1>Default Sample</h1>
-      <!-- <div id="file"></div> -->
+      <h1>Javascript File Manager flat data demo</h1>
     </div>
-    <p>Drive API Quickstart</p>
 
     <!--Add buttons to initiate auth sequence and sign out-->
     <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
-    <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
 
     <pre id="content" style="white-space: pre-wrap;"></pre>
 
     <script type="text/javascript">
-      /* exported gapiLoaded */
-      /* exported gisLoaded */
-      /* exported handleAuthClick */
-      /* exported handleSignoutClick */
-
-      // TODO(developer): Set to client ID and API key from the Developer Console
+      // Set client ID and API key from the Developer Console
       const CLIENT_ID = '<YOUR_CLIENT_ID>';
       const API_KEY = '<YOUR_API_KEY>';
 
       // Discovery doc URL for APIs used by the quickstart
       const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
 
-      // Authorization scopes required by the API; multiple scopes can be
-      // included, separated by spaces.
+      // Authorization scopes required by the API; multiple scopes can be included, separated by spaces.
       const SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file';
 
       let tokenClient;
@@ -70,7 +46,6 @@ limitations under the License.
       let gisInited = false;
 
       document.getElementById('authorize_button').style.visibility = 'hidden';
-      document.getElementById('signout_button').style.visibility = 'hidden';
 
       /**
        * Callback after api.js is loaded.
@@ -132,9 +107,9 @@ limitations under the License.
             if (resp.error !== undefined) {
               throw (resp);
             }
-            document.getElementById('signout_button').style.visibility = 'visible';
             document.getElementById('authorize_button').innerText = 'Refresh';
-            await listFiles();
+            // Load the google drive contents within the File Manager component.
+            await renderFileManager();
           };
 
           if (gapi.client.getToken() === null) {
@@ -148,47 +123,36 @@ limitations under the License.
         }
         catch (error) {
           console.error('Authorization error:', error);
-          // Handle error, e.g., display an error message to the user
         }
       }
 
       /**
-       *  Sign out the user upon button click.
+       * Fetch metadata for first 20 files in the google drive.
        */
-      function handleSignoutClick() {
-        const token = gapi.client.getToken();
-        if (token !== null) {
-          google.accounts.oauth2.revoke(token.access_token);
-          gapi.client.setToken('');
-          document.getElementById('content').innerText = '';
-          document.getElementById('authorize_button').innerText = 'Authorize';
-          document.getElementById('signout_button').style.visibility = 'hidden';
-        }
-      }
-
-      /**
-       * Print metadata for first 10 files.
-       */
-      async function listFiles() {
-        let response;
-        try {
-          response = await gapi.client.drive.files.list({
-            'pageSize': 20,
-            'fields': 'files(id, name, parents, mimeType, size)',
-          });
-        } catch (err) {
-          document.getElementById('content').innerText = err.message;
-          return;
-        }
+      async function fetchData() {
+        // Load the Drive API client library
+        await gapi.client.load('drive', 'v3');
+        // Fetch the first 20 files in the user's Google Drive
+        const response = await gapi.client.drive.files.list({
+          'pageSize': 20,
+          'fields': 'files(id, name, mimeType, size, parents)',
+        });
         const files = response.result.files;
-        //console.log(files);
-        if (!files || files.length == 0) {
-          document.getElementById('content').innerText = 'No files found.';
-          return;
-        }
         // Create a flat array representing parent-child relationships
-        const flatData = await createFlatData(files);
-        window.globalData = flatData;
+        window.fileSystemData = await createFlatData(files);
+        // Update the file manager component with the new data
+        var filemanager = document.getElementById('file');
+        if (filemanager !== null) {
+          filemanager.ej2_instances[0].fileSystemData = window.fileSystemData;
+          filemanager.ej2_instances[0].clearSelection();
+          filemanager.ej2_instances[0].refresh();
+        }
+      }
+      
+      // Create File Manager component with the fetched data
+      async function renderFileManager() {
+        // Get the contents of the user's Google Drive
+        await fetchData();
         if(document.getElementById("file") == null) {
           //Initialize FileManager.
           var container = document.createElement('div');
@@ -196,9 +160,8 @@ limitations under the License.
           document.body.appendChild(container);
           // Initialize the FileManager component
           var feObj = new ej.filemanager.FileManager({
-            fileSystemData: flatData,
+            fileSystemData: window.fileSystemData,
             uploadListCreate: async function uploadFile(args) {
-              console.log(args);
               var fileObj = document.getElementById("file").ej2_instances[0];
               var pathArray = fileObj.pathNames;
               var folderName = pathArray[pathArray.length -1 ];
@@ -206,7 +169,7 @@ limitations under the License.
               var folders = args.fileInfo.name.split('/');
               var fileName = folders.length > 1 ? folders[folders.length - 1] : args.fileInfo.name;
               const file = args.fileInfo.rawFile;
-              // Create a new Drive API request to create the file
+              // Create a new Drive API request to upload a file
               var body = {
                 'name': fileName,
                 'mimeType': args.fileInfo.type,
@@ -222,20 +185,18 @@ limitations under the License.
                   args.element.getElementsByClassName("e-file-status")[0].innerText = "Upload Failed";
                   args.element.getElementsByClassName("e-file-status")[0].classList.add("e-upload-fails");
                 } else {
-                  console.log(args);
-                  // Success: log the folder ID
-                  console.log('File uploaded successfully:', resp.id);
+                  // Success: load the uploaded data within File Manager component.
                   args.element.getElementsByClassName("e-file-status")[0].innerText = "Upload successful";
                   args.element.getElementsByClassName("e-file-status")[0].classList.add("e-upload-success");
-                  listFiles();
-                  setTimeout(()=>{
-                    refreshComponent();
-                  }, 3000);
+                  fetchData();
                 }
               });
             },
             beforeFolderCreate: function onCreate(args) {
+                // Cancel the default folder creation action
                 args.cancel = true;
+
+                // Create a new Drive API request to create a folder
                 var body = {
                   'name': args.folderName,
                   'mimeType': "application/vnd.google-apps.folder",
@@ -244,45 +205,36 @@ limitations under the License.
                 var request = gapi.client.drive.files.create({
                   'resource': body
                 });
-
                 request.execute(function(resp) {
                   if (resp.error) {
                     // Handle the error
                     console.error('Error:', resp.error.message);
                   } else {
-                    console.log(args);
-                    document.getElementById("file_dialog").ej2_instances[0].hide();
-                    listFiles();
-                    setTimeout(()=>{
-                      refreshComponent();
-                    }, 3000);
-                    // Success: log the folder ID
-                    console.log('Folder ID:', resp.id);
+                    // success: load the newly created data within File Manager component.
+                    fetchData();
                   }
                 });
             },
             beforeDelete: function deleting(args) {
+                // Cancel the default delete action
                 args.cancel = true;
+                // Create a new Drive API request to delete the file or folder
                 args.itemData.forEach(function(item) {
                   gapi.client.drive.files.delete({
                     fileId: item.originalID,
                   }).then(function(response) {
-                    console.log(args);
-                    document.getElementById("file_dialog").ej2_instances[0].hide();
-                    listFiles();
-                    setTimeout(()=>{
-                      var fileObj = document.getElementById('file').ej2_instances[0];
-                      fileObj.clearSelection();
-                      refreshComponent();
-                    }, 3000);
-                    console.log('Folder deleted successfully:', response);
+                    // Success: load the updated data within File Manager component.
+                    fetchData();
                   }, function(error) {
+                    // Handle the error
                     console.error('Error deleting folder:', error);
                   });
                 });
             },
             beforeRename: function rename(args) {
+                // Cancel the default rename action
                 args.cancel = true;
+                // Create a new Drive API request to find the file or folder name
                 gapi.client.drive.files.list({
                   q: "name = '" + args.itemData[0].name + "'",
                   fields: 'files(id,name,parents)', // Add any other fields you might need
@@ -290,38 +242,39 @@ limitations under the License.
                   var files = response.result.files;
 
                   if (files && files.length > 0) {
-                    // Assuming the first file in the list is the one you're looking for
+                    // The first file in the list is the one you're looking for
                     var foundFile = files[0];
                     var metadata = {
                       name: args.newName,
                     };
-                    // Send the update request
+                    // Create a new Drive API request to rename the file or folder name
                     gapi.client.drive.files.update({
                       fileId: foundFile.id,
                       resource: metadata,
                     }).then(function(updatedFile) {
-                      console.log(args);
-                      document.getElementById("file_dialog").ej2_instances[0].hide();
-                      listFiles();
-                      setTimeout(()=>{
-                        refreshComponent();
-                      }, 3000);
-                      console.log('File updated successfully:', updatedFile.result);
+                      // Success: load the renamed data within File Manager component.
+                      fetchData();
                     }, function(error) {
+                      // Handle the error
                       console.error('Error updating file:', error);
                     });
                   }
                 }, function(error) {
+                  // Handle the error
                   console.error('Error retrieving file metadata:', error);
                 });
             },
             beforeMove: function moving(args) {
+              // Cancel the default move action
               args.cancel = true;
+              // Check if the operation is a copy or a cut
               if(args.isCopy) {
                 // Update the parents property to move the file to the new folder
                 var newParentFolderId = args.targetData.originalID;
+                // Perform copy operation.
                 args.itemData.forEach(async function(item) {
                   var originalFolderId = item.originalID;
+                  // Check if the item is a folder or a file
                   if(item.type == "") {
                     // Get information about the original folder
                     gapi.client.drive.files.get({
@@ -372,30 +325,33 @@ limitations under the License.
                                                 fileId: copiedFile.result.id,
                                                 resource: updatedProperties
                                             }).then(function(updatedFile) {
-                                              listFiles();
-                                              setTimeout(()=>{
-                                                refreshComponent();
-                                              }, 3000);
-                                                console.log('File updated successfully:', updatedFile.result);
+                                              // Success: load the copied folder data within File Manager component.
+                                              fetchData();
                                             }).catch(function(error) {
+                                                // Handle the error
                                                 console.error('Error updating copied file:', error);
                                             });
                                         }).catch(function(error) {
+                                            // Handle the error
                                             console.error('Error copying file:', error);
                                         });
                                     }
                                 });
                             }).catch(function(error) {
+                                // Handle the error
                                 console.error('Error retrieving folder contents:', error);
                             });
                         }).catch(function(error) {
+                            // Handle the error
                             console.error('Error creating new folder:', error);
                         });
                     }).catch(function(error) {
+                        // Handle the error
                         console.error('Error retrieving folder metadata:', error);
                     });
                   }
                   else {
+                    // Get information about the original file
                     gapi.client.drive.files.get({
                         fileId: originalFolderId,
                         fields: 'id,name,parents',
@@ -409,22 +365,18 @@ limitations under the License.
                               parents: [newParentFolderId]
                           }
                       }).then(function(copiedFile) {
-                          console.log('File copied successfully:', copiedFile.result);
-
                           // Update the copied file's properties if needed
                           var updatedProperties = {
                               // Add any additional properties you want to update
                           };
 
+                          // Send the update request
                           gapi.client.drive.files.update({
                               fileId: copiedFile.result.id,
                               resource: updatedProperties
                           }).then(function(updatedFile) {
-                            listFiles();
-                            setTimeout(()=>{
-                              refreshComponent();
-                            }, 3000);
-                              console.log('File updated successfully:', updatedFile.result);
+                            // Success: load the copied file data within File Manager component.
+                            fetchData();
                           }).catch(function(error) {
                               console.error('Error updating copied file:', error);
                           });
@@ -440,6 +392,7 @@ limitations under the License.
               }
               //Perform cut operation.
               args.itemData.forEach(function(item) {
+                // Get information about the original file
                 gapi.client.drive.files.get({
                     fileId: item.originalID,
                     fields: 'id,parents', // Add any other fields you might need
@@ -453,12 +406,8 @@ limitations under the License.
                       addParents: newParentFolderId,
                       removeParents: fileMetadata.parents[0],
                   }).then(function(updatedFile) {
-                      console.log(args);
-                      listFiles();
-                      setTimeout(()=>{
-                        refreshComponent();
-                      }, 3000);
-                      console.log('File moved successfully:', updatedFile.result);
+                      // Success: load the moved file data within File Manager component.
+                      fetchData();
                   }, function(error) {
                       console.error('Error moving file:', error);
                   });
@@ -468,7 +417,7 @@ limitations under the License.
               });
             },
             beforeDownload: function beforeDownload(args) {
-              console.log(args);
+              // Cancel the default download action
               args.cancel = true;
               var fileData = args.data.data;
               const zip = new JSZip();
@@ -519,11 +468,7 @@ limitations under the License.
           feObj.appendTo('#file');
         }
       }
-      function refreshComponent() {
-        var fileObj = document.getElementById('file').ej2_instances[0];
-        fileObj.fileSystemData = window.globalData;
-        fileObj.refreshFiles();
-      }
+      // Function to fetch the contents of a folder
       function fetchFolderContents(folderId) {
         return gapi.client.drive.files.list({
           q: `'${folderId}' in parents`,
@@ -540,6 +485,7 @@ limitations under the License.
         });
         return totalCount;
       }
+      // Function to download multiple files as a zip folder
       function downloadFiles(files) {
         const zip = new JSZip();
         const totalCount = files.some(file => file.type === "") ? getTotalFileCount(files) : files.length;
@@ -588,6 +534,7 @@ limitations under the License.
           }
         });
       }
+      // Function to copy a folder and its contents
       async function copyFolder(originalFolderId, newParentFolderId) {
         // Get information about the original folder
         await gapi.client.drive.files.get({
@@ -657,8 +604,6 @@ limitations under the License.
             console.error('Error retrieving folder metadata:', error);
         });
       }
-
-      
 
      // Function to create a flat array representing parent-child relationships
       async function createFlatData(files) {
@@ -768,7 +713,6 @@ limitations under the License.
           if (!isMatchFound(newData, data[i]))
             await newData.push(data[i]);
         }
-        //var fileData = flatData.filter(function(obj) {return obj.isFile == true && obj.parentId == '0' });
         for(var i =0; i< newData.length; i++) {
           if(newData[i].parentId != null) {
             var parentData = flatData.filter(function (obj) { return obj.id == newData[i].parentId });
