@@ -132,12 +132,19 @@
       async function fetchData() {
         // Load the Drive API client library
         await gapi.client.load('drive', 'v3');
-        // Fetch the first 20 files in the user's Google Drive
-        const response = await gapi.client.drive.files.list({
-          'pageSize': 20,
-          'fields': 'files(id, name, mimeType, size, parents)',
-        });
-        const files = response.result.files;
+        let nextPageToken = null;
+        let allFiles = [];
+        do {
+          const response = await gapi.client.drive.files.list({
+            pageSize: 1000,
+            fields: 'nextPageToken, files(id, name, mimeType, size, parents)',
+            pageToken: nextPageToken
+          });
+
+          allFiles = allFiles.concat(response.result.files);
+          nextPageToken = response.result.nextPageToken;
+        } while (nextPageToken);
+        const files = allFiles;
         // Create a flat array representing parent-child relationships
         window.fileSystemData = await createFlatData(files);
         // Update the file manager component with the new data
