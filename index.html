@@ -32,8 +32,8 @@
 
     <script type="text/javascript">
       // Set client ID and API key from the Developer Console
-      const CLIENT_ID = '<YOUR_CLIENT_ID>';
-      const API_KEY = '<YOUR_API_KEY>';
+      const CLIENT_ID = '315027486867-q3n9m4eii54kgsaf4hhral6kqrqpge5n.apps.googleusercontent.com';
+      const API_KEY = 'AIzaSyCbmDNuuiUIaktM2b6Frxu_nk9Gd8H-gGA';
 
       // Discovery doc URL for APIs used by the quickstart
       const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
@@ -137,10 +137,9 @@
         do {
           const response = await gapi.client.drive.files.list({
             pageSize: 1000,
-            fields: 'nextPageToken, files(id, name, mimeType, size, parents)',
+            fields: 'nextPageToken, files(id, name, mimeType, size, parents, thumbnailLink)',
             pageToken: nextPageToken
           });
-
           allFiles = allFiles.concat(response.result.files);
           nextPageToken = response.result.nextPageToken;
         } while (nextPageToken);
@@ -298,8 +297,6 @@
                                 parents: [newParentFolderId]
                             }
                         }).then(function(newFolder) {
-                            console.log('Folder copied successfully:', newFolder.result);
-
                             // Get the contents of the original folder
                             gapi.client.drive.files.list({
                                 q: "'" + originalFolderId + "' in parents",
@@ -322,7 +319,6 @@
                                                 parents: [newFolder.result.id]
                                             }
                                         }).then(function(copiedFile) {
-                                            console.log('File copied successfully:', copiedFile.result);
                                             // Update the copied file's properties if needed
                                             var updatedProperties = {
                                                 // Add any additional properties you want to update
@@ -558,8 +554,6 @@
                     parents: [newParentFolderId]
                 }
             }).then(async function(newFolder) {
-                console.log('Folder copied successfully:', newFolder.result);
-
                 // Get the contents of the original folder
                 await gapi.client.drive.files.list({
                     q: "'" + originalFolderId + "' in parents",
@@ -582,7 +576,6 @@
                                     parents: [newFolder.result.id]
                                 }
                             }).then(async function(copiedFile) {
-                                console.log('File copied successfully:', copiedFile.result);
                                 // Update the copied file's properties if needed
                                 var updatedProperties = {
                                     // Add any additional properties you want to update
@@ -592,7 +585,6 @@
                                     fileId: copiedFile.result.id,
                                     resource: updatedProperties
                                 }).then(function(updatedFile) {
-                                    console.log('File updated successfully:', updatedFile.result);
                                 }).catch(function(error) {
                                     console.error('Error updating copied file:', error);
                                 });
@@ -618,30 +610,15 @@
         var fileDetails = {}, parentDetails = {};
         var rootId, isFileOrFolder;
         var hasSubitems;
-        
+        let fileList = files;
         // Add 'async' to make the function asynchronous
         await Promise.all(files.map(async file => {
           isFileOrFolder = file.mimeType == 'application/vnd.google-apps.folder' ? false : true;
           if (!isFileOrFolder) {
-            hasSubitems = await doesFolderHaveSubfolders(file.id);
+            hasSubitems = file.name == 'Files'? true : doesFolderHaveSubfolders(fileList, file.id);
           }
           var fileType = getFileTypeFromName(file.name);
-          var imageUrl;
-          if(fileType == 'png' || fileType == "jpg" || fileType == "jpeg") {
-            const fileId = file.id; // Replace with the actual file ID
-            // Fetch file content
-            await gapi.client.drive.files.get({ fileId, alt: 'media' })
-              .then(response => {
-                // 'response.body' contains the file content
-                const fileContent = response.body;
-                // Convert to base64 if needed
-                imageUrl = 'data:image/png;base64,' + btoa(fileContent);
-                //console.log('Base64 value:', imageUrl);
-              })
-              .catch(error => {
-                console.error('Error fetching file content:', error);
-              }); 
-          }
+          var imageUrl = file.thumbnailLink;
           //Frame File Manager response data by retrieveing the folder details from google service.
           if (file.name == 'Files') {
             rootId = file.id;
@@ -758,26 +735,8 @@
         }
       }
 
-      async function doesFolderHaveSubfolders(folderId) {
-        try {
-          const response = await gapi.client.drive.files.list({
-            'q': `'${folderId}' in parents and mimeType = 'application/vnd.google-apps.folder'`,
-            'maxResults': 1,
-            'fields': 'files(id)',
-          });
-
-          const subfolders = response.result.files;
-          if(subfolders.length > 0) {
-            return true;
-          }
-          else {
-            return false;
-          }
-          //return subfolders && subfolders.length > 0;
-        } catch (err) {
-          console.error(err);
-          return false;
-        }
+      function doesFolderHaveSubfolders(list, folderId) {
+        return list.some(item => item.parents.includes(folderId) && item.mimeType === 'application/vnd.google-apps.folder');
       }
     </script>
     <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
