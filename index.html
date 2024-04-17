@@ -137,13 +137,13 @@
         do {
           const response = await gapi.client.drive.files.list({
             pageSize: 1000,
-            fields: 'nextPageToken, files(id, name, mimeType, size, parents, thumbnailLink)',
+            fields: 'nextPageToken, files(id, name, mimeType, size, parents, thumbnailLink, trashed)',
             pageToken: nextPageToken
           });
           allFiles = allFiles.concat(response.result.files);
           nextPageToken = response.result.nextPageToken;
         } while (nextPageToken);
-        const files = allFiles;
+        const files = allFiles.filter(file => !file.trashed);
         // Create a flat array representing parent-child relationships
         window.fileSystemData = await createFlatData(files);
         // Update the file manager component with the new data
