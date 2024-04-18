@@ -673,30 +673,31 @@
         }
         var newData = [];
         var data = flatData.filter(function(obj) {return obj.isFile == false });
-        for(var i=0; i< data.length; i++) {
-          var root = data.filter(function(obj) {return obj.parentId == null });
-          if(!isMatchFound(newData, root[0]) && root.length > 0) {
-            await newData.push(root[0]);
-          }
-          var index = data.findIndex(function(obj) {return obj.parentId == null });
-          if (index !== -1) {
-            data.splice(index, 1);
-          }
-          var subFolders = flatData.filter(function(obj) {return obj.parentId == '0' });
-          for(var i=0; i< subFolders.length; i++) {
-            if (!isMatchFound(newData, subFolders[i]) && subFolders[i].filterPath != undefined) {
-              var index = data.findIndex(function(obj) {return obj.id == subFolders[i].id });
-              if (index !== -1) {
-                data.splice(index, 1);
-              }
-              await newData.push(subFolders[i]);
+        var root = data.filter(function(obj) {return obj.parentId == null });
+        if(root.length > 0 && !isMatchFound(newData, root[0])) {
+          await newData.push(root[0]);
+        }
+        var index = data.findIndex(function(obj) {return obj.parentId == null });
+        if (index !== -1) {
+          data.splice(index, 1);
+        }
+        // Add sub folders in list
+        var subFolders = flatData.filter(function(obj) {return obj.parentId == '0' });
+        for(var j=0; j< subFolders.length; j++) {
+          if (!isMatchFound(newData, subFolders[j]) && subFolders[j].filterPath != undefined) {
+            var index = data.findIndex(function(obj) {return obj.id == subFolders[j].id });
+            if (index !== -1) {
+              data.splice(index, 1);
             }
+            await newData.push(subFolders[j]);
           }
         }
+        // Add nested folder in list
         for(var i=0; i< data.length; i++) {
           if (!isMatchFound(newData, data[i]))
             await newData.push(data[i]);
         }
+        // Add nested folder filter path based on parent folder.
         for(var i =0; i< newData.length; i++) {
           if(newData[i].parentId != null) {
             var parentData = flatData.filter(function (obj) { return obj.id == newData[i].parentId });
@@ -705,6 +706,7 @@
             }
           }
         }
+        // Add files in list
         await Promise.all(files.map(async file => {
           var fileData = flatData.filter(function(obj) {return obj.isFile == true });
           if(file.parents != undefined && file.parents.length > 0) {
