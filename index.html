@@ -426,7 +426,7 @@
               var fileData = args.data.data;
               const zip = new JSZip();
               //To download multiple files as zip folder.
-              if(fileData.length > 1) {
+              if(fileData.length > 1 || !fileData[0].isFile) {
                 downloadFiles(fileData);
               }
               //To download single file.
