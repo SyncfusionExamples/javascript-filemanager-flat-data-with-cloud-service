@@ -1,48 +1,69 @@
 # javascript-filemanager-flat-data-with-cloud-service
 
-This project is a skeleton application used to create Javascript File Manager flat data web application with Google file service provider.
+**Repository Description**  
+This repository contains a JavaScript sample project that demonstrates how to build a **File Manager web application using flat data** with a **Google Drive cloud service provider**. The application is built using the Syncfusion **Essential JS 2 File Manager** component.
 
-## Getting Started
+The project serves as a skeleton application that shows how JavaScript File Manager can authenticate with Google services and manage files stored in a cloud environment.
 
-To get started you need to clone the `javascript-filemanager-flat-data-with-cloud-service` repository and navigate to `javascript-filemanager-flat-data-with-cloud-service` location.
+## Project Overview
+The purpose of this project is to help developers understand how to integrate the Syncfusion JavaScript File Manager with a cloud‑based file service using flat data. It demonstrates authorization with Google accounts and accessing file data through the Google Drive API from a JavaScript application.
 
+## Features
+- Integration of **Essential JS 2 JavaScript File Manager**
+- Cloud‑based file management using **Google Drive**
+- Flat data structure for file and folder representation
+- Lightweight JavaScript setup without frameworks
+- Client‑side authentication and authorization flow
+
+## Prerequisites
+Ensure the following requirements are met before running this project:
+- A supported web browser
+- Node.js and npm
+- Google account with access to Google Drive
+- Basic knowledge of JavaScript (ES5)
+
+## Installation
+
+### Clone the Repository
+Clone the repository and navigate to the project folder:
+```bash
+git clone https://github.com/SyncfusionExamples/javascript-filemanager-flat-data-with-cloud-service.git
+cd javascript-filemanager-flat-data-with-cloud-service
 ```
-git clone https://github.com/SyncfusionExamples/javascript-filemanager-flat-data-with-cloud-service.git quickstart
-cd quickstart
-```
-
-## Installing
-
-We can get all the Essential JS 2 components in a single npm package [`ej2`](https://www.npmjs.com/package/@syncfusion/ej2) and [http-server](https://www.npmjs.com/package/http-server) for production usage.
-
-We already configure the required packages in the `package.json` file.
-
-You can run the below command to install all dependent packages related to this seed project.
-
-```
+### Install Dependencies
+All required packages are already configured in package.json. Install the dependencies using:
+```bash
 npm install
 ```
-
-## Running
-
-You can use the below npm script to run the web application.
-
-```
+### Running the Application
+Run the following command to start the web application:
+```bash
 npx http-server -p 8000
 ```
+Open your browser and navigate to:`http://localhost:8000`
 
-In your browser, navigate to http://localhost:8000 to serve the web application.
+## Configuration
+The application is preconfigured to use flat data with a Google file service provider. Authorization is handled through Google’s consent flow when the application is first loaded.
 
-`You see a prompt to authorize access:`
+## Documentation
+- General Syncfusion documentation:
+https://help.syncfusion.com/
+- JavaScript Introduction (Essential JS 2):
+https://ej2.syncfusion.com/javascript/documentation/introduction
+- JavaScript File Manager – Getting Started (ES5):
+https://ej2.syncfusion.com/javascript/documentation/file-manager/es5-getting-started
 
-* If you're not already signed in to your Google Account, sign in when prompted. If you're signed in to multiple accounts, select one account to use for authorization.
-* Click Accept.
+## Additional Resources
+- Pure JavaScript demos:
+http://ej2.syncfusion.com/demos/
+- Pure JavaScript documentation:
+http://ej2.syncfusion.com/documentation/
 
-Your JavaScript application runs and calls the Google Drive API.
+## Troubleshooting
+- Ensure Node.js and npm are installed correctly.
+- Verify that port 8000 is not blocked or in use.
+- Confirm Google account authorization permissions.
+- Restart the server if changes are not reflected.
 
-## Resources
-
-You can also refer the below resources to know more details about Essential JS 2 components.
-
-* [Pure JS Demos](http://ej2.syncfusion.com/demos/)
-* [Pure JS Documentation](http://ej2.syncfusion.com/documentation/)
+## Support
+For detailed API references, cloud integration guidance, and advanced File Manager configuration, refer to the Syncfusion JavaScript File Manager documentation links provided above.
