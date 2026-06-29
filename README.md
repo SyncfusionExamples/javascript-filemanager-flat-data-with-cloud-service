@@ -47,17 +47,17 @@ The application is preconfigured to use flat data with a Google file service pro
 
 ## Documentation
 - General Syncfusion documentation:
-https://help.syncfusion.com/
+https://help.syncfusion.com/?utm_source=github&utm_medium=listing&utm_campaign=javascript-file-manager-github-samples
 - JavaScript Introduction (Essential JS 2):
-https://ej2.syncfusion.com/javascript/documentation/introduction
+https://ej2.syncfusion.com/javascript/documentation/introduction?utm_source=github&utm_medium=listing&utm_campaign=javascript-file-manager-github-samples
 - JavaScript File Manager – Getting Started (ES5):
-https://ej2.syncfusion.com/javascript/documentation/file-manager/es5-getting-started
+https://ej2.syncfusion.com/javascript/documentation/file-manager/es5-getting-started?utm_source=github&utm_medium=listing&utm_campaign=javascript-file-manager-github-samples
 
 ## Additional Resources
 - Pure JavaScript demos:
-http://ej2.syncfusion.com/demos/
+https://ej2.syncfusion.com/demos/?utm_source=github&utm_medium=listing&utm_campaign=javascript-file-manager-github-samples#/bootstrap5/grid/grid-overview.html
 - Pure JavaScript documentation:
-http://ej2.syncfusion.com/documentation/
+https://ej2.syncfusion.com/documentation/introduction?utm_source=github&utm_medium=listing&utm_campaign=javascript-file-manager-github-samples
 
 ## Troubleshooting
 - Ensure Node.js and npm are installed correctly.
