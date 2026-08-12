@@ -3,7 +3,7 @@
 **Repository Description**  
 This repository contains a JavaScript sample project that demonstrates how to build a **File Manager web application using flat data** with a **Google Drive cloud service provider**. The application is built using the Syncfusion **Essential JS 2 File Manager** component.
 
-The project serves as a skeleton application that shows how JavaScript File Manager can authenticate with Google services and manage files stored in a cloud environment.
+The project serves as a skeleton application that shows how [JavaScript File Manager](https://www.syncfusion.com/javascript-ui-controls/js-file-manager?utm_source=github&utm_medium=listing&utm_campaign=javascript-file-manager-github-samples) can authenticate with Google services and manage files stored in a cloud environment.
 
 ## Project Overview
 The purpose of this project is to help developers understand how to integrate the Syncfusion JavaScript File Manager with a cloud‑based file service using flat data. It demonstrates authorization with Google accounts and accessing file data through the Google Drive API from a JavaScript application.
@@ -11,7 +11,7 @@ The purpose of this project is to help developers understand how to integrate th
 ## Features
 - Integration of **Essential JS 2 JavaScript File Manager**
 - Cloud‑based file management using **Google Drive**
-- Flat data structure for file and folder representation
+- [Flat data](https://ej2.syncfusion.com/documentation/file-manager/flat-data?utm_source=github&utm_medium=listing&utm_campaign=javascript-file-manager-github-samples) structure for file and folder representation
 - Lightweight JavaScript setup without frameworks
 - Client‑side authentication and authorization flow
 
@@ -47,17 +47,17 @@ The application is preconfigured to use flat data with a Google file service pro
 
 ## Documentation
 - General Syncfusion documentation:
-https://help.syncfusion.com/
+https://help.syncfusion.com/?utm_source=github&utm_medium=listing&utm_campaign=javascript-file-manager-github-samples
 - JavaScript Introduction (Essential JS 2):
-https://ej2.syncfusion.com/javascript/documentation/introduction
+https://ej2.syncfusion.com/javascript/documentation/introduction?utm_source=github&utm_medium=listing&utm_campaign=javascript-file-manager-github-samples
 - JavaScript File Manager – Getting Started (ES5):
-https://ej2.syncfusion.com/javascript/documentation/file-manager/es5-getting-started
+https://ej2.syncfusion.com/javascript/documentation/file-manager/es5-getting-started?utm_source=github&utm_medium=listing&utm_campaign=javascript-file-manager-github-samples
 
 ## Additional Resources
 - Pure JavaScript demos:
-http://ej2.syncfusion.com/demos/
+https://ej2.syncfusion.com/demos/?utm_source=github&utm_medium=listing&utm_campaign=javascript-file-manager-github-samples#/bootstrap5/grid/grid-overview.html
 - Pure JavaScript documentation:
-http://ej2.syncfusion.com/documentation/
+https://ej2.syncfusion.com/documentation/introduction?utm_source=github&utm_medium=listing&utm_campaign=javascript-file-manager-github-samples
 
 ## Troubleshooting
 - Ensure Node.js and npm are installed correctly.
